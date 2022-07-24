@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styles from "./main.module.css";
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import LoginModal from '../loginModal/loginModal';
-import { useCallback } from 'react';
 
-const Main = (props) => {
+
+const Main = () => {
     // 로그인창 열고 닫는 것과 관련된 state. true면 open, false면 close되도록
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(false);
 
     const openModal = useCallback(() => {
         setShowModal(true);

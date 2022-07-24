@@ -1,10 +1,19 @@
 import React, { useEffect } from 'react';
+import { useRef } from 'react';
 import { useCallback } from 'react';
 import styles from "./loginModal.module.css";
 
 const LoginModal = ({closeModal}) => {
+    const modalRef = useRef();
+
     const closeModalByESC = useCallback((e) => {
         if(e.key === 'Escape'){
+            closeModal();
+        }
+    }, [closeModal]);
+
+    const closeModalByOutsideClick = useCallback(e => {
+        if(modalRef.current !== e.target){
             closeModal();
         }
     }, [closeModal]);
@@ -23,20 +32,19 @@ const LoginModal = ({closeModal}) => {
     }, []);
 
     useEffect(() => {
+        console.log("mount");
         document.addEventListener('keydown', closeModalByESC);
+        document.addEventListener("click", closeModalByOutsideClick);
         return () => {
+            console.log("unmount");
             document.removeEventListener('keydown', closeModalByESC);
+            document.removeEventListener("click", closeModalByOutsideClick);
         };
-    }, [closeModalByESC])
-
-    const handleKeyDown = (e) => {
-        console.log("down");
-        console.log(e);
-    }
+    }, [closeModalByESC, closeModalByOutsideClick]);
       
     return(
-        <div onKeyDown={handleKeyDown} className={styles.modal_background}>
-            <div className={styles.loginModal}>
+        <div className={styles.modal_background}>
+            <div className={styles.loginModal} ref={modalRef}>
                 로그인모오달
                 <button onClick={closeModal}>닫기</button>
             </div>
