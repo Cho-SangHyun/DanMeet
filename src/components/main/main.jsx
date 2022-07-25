@@ -18,7 +18,7 @@ const Main = () => {
 
     return(
         <div className={styles.main}>
-            <Navbar showModal={showModal} openModal={openModal}/>
+            <Navbar openModal={openModal}/>
             {showModal && <LoginModal closeModal={closeModal}/>}
             <section className={`${styles.main_section} ${styles.section1}`}></section>
             <section className={`${styles.main_section} ${styles.section2}`}></section>
