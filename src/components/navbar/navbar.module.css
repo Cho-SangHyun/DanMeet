@@ -1,3 +1,13 @@
 .navbar{
+    width: 100%;
     font-size: 3rem;
+    background-color: aqua;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+}
+
+.navbar_buttons{
+    background-color: antiquewhite;
 }

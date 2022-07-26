@@ -1,12 +1,12 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styles from "./loginModal.module.css";
 
-const LoginModal = ({closeModal}) => {
+const LoginModal = ({closeModal, authService}) => {
     const modalRef = useRef();
 
     const [userInput, setUserInput] = useState({
-        id: '',
-        pw: ''
+        email: '',
+        password: ''
     });
 
     const closeModalByESC = useCallback((e) => {
@@ -31,9 +31,13 @@ const LoginModal = ({closeModal}) => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(userInput);
+        const user = await authService.login(userInput.email, userInput.password);
+        // 로그인 성공 후 모달창 닫기
+        if(user){
+            closeModal();
+        }
     };
 
     useEffect(() => {
@@ -59,8 +63,8 @@ const LoginModal = ({closeModal}) => {
                 로그인모오달
                 <button onClick={closeModal}>닫기</button>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" name="id" placeholder='아이디' onChange={handleChange}/>
-                    <input type="password" name="pw" placeholder='비밀번호' onChange={handleChange}/>
+                    <input type="email" name="email" placeholder='이메일' onChange={handleChange}/>
+                    <input type="password" name="password" placeholder='비밀번호' onChange={handleChange}/>
                     <button>로그인</button>
                 </form>
             </div>
