@@ -1,8 +1,10 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from "./loginModal.module.css";
 
 const LoginModal = ({closeModal, authService}) => {
     const modalRef = useRef();
+    const navigate = useNavigate();
 
     const [userInput, setUserInput] = useState({
         email: '',
@@ -36,7 +38,12 @@ const LoginModal = ({closeModal, authService}) => {
         const user = await authService.login(userInput.email, userInput.password);
         // 로그인 성공 후 모달창 닫기
         if(user){
-            closeModal();
+            console.log(user.uid);
+            navigate("/", {
+                state: {
+                    userId: user.uid,
+                },
+            });
         }
     };
 

@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpPage = ({authService}) => {
+    const navigate = useNavigate();
+
     const [userInput, setUserInput] = useState({
         email: '',
         password1: '',
@@ -17,10 +21,29 @@ const SignUpPage = ({authService}) => {
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        authService.signup(userInput.email, userInput.password1, userInput.password2);
+        const user = await authService.signup(
+            userInput.email, 
+            userInput.password1, 
+            userInput.password2
+        );
+        if(user){
+            navigate("/", {
+                state: {
+                    userId: user.uid,
+                },
+            });
+        }
     };
+
+    useEffect(() => {
+        authService.onAuthChange(user => {
+            if(user){
+                navigate("/");
+            };
+        });
+    });
 
     return(
         <div>회원가입
