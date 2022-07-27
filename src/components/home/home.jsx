@@ -1,11 +1,11 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import styles from "./main.module.css";
+import styles from "./home.module.css";
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import LoginModal from '../loginModal/loginModal';
 
 
-const Main = ({authService}) => {
+const Home = ({authService}) => {
     // 이걸로 로그인여부를 따짐.
     const [userId, setUserId] = useState(null);
     // 로그인창 열고 닫는 것과 관련된 state. true면 open, false면 close되도록
@@ -39,4 +39,4 @@ const Main = ({authService}) => {
     )
 }
 
-export default Main;
+export default Home;

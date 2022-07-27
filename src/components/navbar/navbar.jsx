@@ -7,7 +7,7 @@ const Navbar = ({ openModal, userId, authService, setUserId }) => {
         setTimeout(openModal, 50);
     };
 
-    const gotoMain = () => {
+    const logout = () => {
         // 로그아웃 성공하면 실행할 콜백을 같이 넘김
         // Main 컴포넌트의 userId를 null로 바꿈으로써 로그인, 회원가입 버튼이 보이도록!
         authService.logout(() => {
@@ -20,7 +20,7 @@ const Navbar = ({ openModal, userId, authService, setUserId }) => {
             Project Name
             <div className={styles.navbar_buttons}>
                 { userId ? (
-                    <button onClick={gotoMain}>로그아웃</button>
+                    <button onClick={logout}>로그아웃</button>
                 ) : (
                     <>
                         <button onClick={openModalByClick}>로그인</button>
