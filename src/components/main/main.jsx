@@ -34,7 +34,11 @@ const Main = ({authService}) => {
                 {type: "button", onClick: logout, text: "로그아웃"},
                 {type: "button", onClick: () => {}, text: "마이페이지"},
             ]}/>
-            <div className={styles.s}></div>
+            <section className={styles.main_section}>
+                <ul className={styles.main_buttons}>
+                    
+                </ul>
+            </section>
         </div>
     )
 }
