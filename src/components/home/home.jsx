@@ -22,7 +22,11 @@ const Home = ({authService}) => {
         // 현재 로그인돼있으면 main으로 이동
         authService.onAuthChange(user => {
             if(user){
-                navigate("/");
+                navigate("/", {
+                    state: {
+                        userId: user.uid,
+                    },
+                });
             };
         })
     });
