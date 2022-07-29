@@ -33,7 +33,10 @@ const Home = ({authService}) => {
 
     return(
         <div className={styles.home}>
-            <Navbar openModal={openModal} />
+            <Navbar contents={[
+                {type: "button", onClick: () => {setTimeout(openModal, 50);}, text: "로그인"},
+                {type: "link", to: "/signup", text: "회원가입"}
+            ]}/>
             {showModal && <LoginModal closeModal={closeModal} authService={authService}/>}
             <section className={`${styles.home_section} ${styles.section1}`}></section>
             <section className={`${styles.home_section} ${styles.section2}`}></section>

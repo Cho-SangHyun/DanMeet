@@ -1,7 +1,6 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Navbar from '../navbar/navbar';
 import styles from './main.module.css';
 
 const Main = ({authService}) => {
@@ -31,8 +30,11 @@ const Main = ({authService}) => {
 
     return(
         <div className={styles.main}>
-            메인
-            <button onClick={logout}>로그아웃</button>
+            <Navbar contents={[
+                {type: "button", onClick: logout, text: "로그아웃"},
+                {type: "button", onClick: () => {}, text: "마이페이지"},
+            ]}/>
+            <div className={styles.s}></div>
         </div>
     )
 }
