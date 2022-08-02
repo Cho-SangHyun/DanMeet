@@ -1,0 +1,28 @@
+.navbar_button{
+    height: 48px;
+    display: flex;
+    align-items: center;
+    margin-right: 1.25rem;
+}
+.button{
+    cursor: pointer;
+    display: inline-block;
+    background-color: rgb(255, 255, 255);
+    width: 100px;
+    height: 100%;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 0;
+    text-decoration: none;
+    color: black;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s;
+}
+
+.button:hover{
+    color:rgb(127, 125, 209)
+}
