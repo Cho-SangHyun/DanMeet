@@ -11,7 +11,6 @@
 }
 
 .section1{
-    position: relative;
     background-image: url('../../images/background1.jpg');
     background-position: top center;
     background-size: cover;
@@ -33,7 +32,7 @@
     position: relative;
     top: 80px;
     left: 50px;
-    z-index: 10;
+    z-index: 2;
     margin: 0;
     color: white;
 }
@@ -43,7 +42,9 @@
 }
 
 .section3{
-    background-color: rgb(146, 146, 146);
+    background-image: url('../../images/background2.jpg');
+    background-position: top center;
+    background-size: cover;
 }
 
 .section4{

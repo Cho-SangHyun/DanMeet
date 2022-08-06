@@ -8,7 +8,10 @@ const SignUpPage = ({authService}) => {
     const [userInput, setUserInput] = useState({
         email: '',
         password1: '',
-        password2: ''
+        password2: '',
+        nickname: '',
+        classOf: null,
+        major: null
     });
 
     const handleChange = (e) => {
@@ -26,7 +29,10 @@ const SignUpPage = ({authService}) => {
         const user = await authService.signup(
             userInput.email, 
             userInput.password1, 
-            userInput.password2
+            userInput.password2,
+            userInput.nickname,
+            parseInt(userInput.classOf),
+            userInput.major
         );
         if(user){
             navigate("/", {
@@ -51,6 +57,9 @@ const SignUpPage = ({authService}) => {
                 <input type="email" name="email" placeholder='이메일' onChange={handleChange}/>
                 <input type="password" name="password1" placeholder='비밀번호' onChange={handleChange}/>
                 <input type="password" name="password2" placeholder='비밀번호 확인' onChange={handleChange}/>
+                <input type="text" name="nickname" placeholder='닉네임' onChange={handleChange}/>
+                <input type="number" name="classOf" placeholder='학번' onChange={handleChange}/>
+                <input type="text" name="major" placeholder='학과' onChange={handleChange}/>
                 <button>회원가입</button>
             </form>
         </div>
