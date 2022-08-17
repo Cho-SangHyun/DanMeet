@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const SignUpPage = ({authService}) => {
+const SignUpPage = ({authService, database}) => {
     const navigate = useNavigate();
 
     const [userInput, setUserInput] = useState({
@@ -30,11 +30,14 @@ const SignUpPage = ({authService}) => {
             userInput.email, 
             userInput.password1, 
             userInput.password2,
-            userInput.nickname,
-            parseInt(userInput.classOf),
-            userInput.major
         );
         if(user){
+            await database.storeUserInfo(
+                user.uid,
+                userInput.nickname,
+                parseInt(userInput.classOf),
+                userInput.major
+            );
             navigate("/", {
                 state: {
                     userId: user.uid,

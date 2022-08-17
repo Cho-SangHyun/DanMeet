@@ -6,13 +6,13 @@ import MyPage from './components/myPage/myPage';
 import SelectCondition from './components/selectCondition/selectCondition';
 import SignUpPage from './components/signUpPage/signupPage';
 
-function App({authService}) {
+function App({authService, database}) {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Main authService={authService}/>}/>
         <Route path="home" element={<Home authService={authService}/>}/>
-        <Route path="signup" element={<SignUpPage authService={authService}/>}/>
+        <Route path="signup" element={<SignUpPage authService={authService} database={database}/>}/>
         <Route path="senior" element={<SelectCondition opponent={'senior'} authService={authService}/>}/>
         <Route path="junior" element={<SelectCondition opponent={'junior'} authService={authService}/>}/>
         <Route path="friend" element={<SelectCondition opponent={'friend'} authService={authService}/>}/>
