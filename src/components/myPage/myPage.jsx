@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '../navbar/navbar';
 import styles from "./myPage.module.css";
 
-const MyPage = ({authService}) => {
+const MyPage = ({authService, database}) => {
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -11,6 +11,12 @@ const MyPage = ({authService}) => {
         location.state?.userId
     );
 
+    const [userInfo, setUserInfo] = useState({
+        classOf: '',
+        major: '',
+        nickname: ''
+    });
+    
     const logout = () => {
         authService.logout(() => {
             navigate("/home");
@@ -27,6 +33,10 @@ const MyPage = ({authService}) => {
             }
         });
     }, [authService, navigate]);
+
+    useEffect(() => {
+        database.getUserInfo(userId, setUserInfo);
+    }, [userId, database]);
 
     return(
         <div className={styles.main}>

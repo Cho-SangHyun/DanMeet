@@ -16,7 +16,7 @@ function App({authService, database}) {
         <Route path="senior" element={<SelectCondition opponent={'senior'} authService={authService}/>}/>
         <Route path="junior" element={<SelectCondition opponent={'junior'} authService={authService}/>}/>
         <Route path="friend" element={<SelectCondition opponent={'friend'} authService={authService}/>}/>
-        <Route path="mypage" element={<MyPage authService={authService}/>}/>
+        <Route path="mypage" element={<MyPage authService={authService} database={database}/>}/>
       </Routes>
     </BrowserRouter>
   );
