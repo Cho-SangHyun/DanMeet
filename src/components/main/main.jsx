@@ -13,7 +13,7 @@ const Main = ({authService}) => {
 
     const logout = () => {
         authService.logout(() => {
-            navigate("home");
+            navigate("/home");
         });
     };
 
