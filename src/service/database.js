@@ -17,6 +17,7 @@ class Database{
         const Ref = ref(this.database, 'users/' + userId);
         onValue(Ref, (snapshot) => {
             const data = snapshot.val();
+            data["userId"] = userId;
             setUserInfo(data);
         });
     }

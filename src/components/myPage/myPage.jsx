@@ -7,11 +7,8 @@ const MyPage = ({authService, database}) => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const [userId, setUserId] = useState(
-        location.state?.userId
-    );
-
     const [userInfo, setUserInfo] = useState({
+        userId: location.state?.userId,
         classOf: '',
         major: '',
         nickname: ''
@@ -26,17 +23,13 @@ const MyPage = ({authService, database}) => {
     useEffect(() => {
         authService.onAuthChange(user => {
             if(user){
-                setUserId(user.uid);
+                database.getUserInfo(user.uid, setUserInfo);
             }
             else{
                 navigate("/home");
             }
         });
-    }, [authService, navigate]);
-
-    useEffect(() => {
-        database.getUserInfo(userId, setUserInfo);
-    }, [userId, database]);
+    }, [authService, navigate, database]);
 
     return(
         <div className={styles.main}>
