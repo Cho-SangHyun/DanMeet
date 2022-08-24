@@ -38,7 +38,6 @@ const LoginModal = ({closeModal, authService}) => {
         const user = await authService.login(userInput.email, userInput.password);
         // 로그인 성공 후 모달창 닫기
         if(user){
-            console.log(user.uid);
             navigate("/", {
                 state: {
                     userId: user.uid,

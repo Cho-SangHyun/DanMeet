@@ -1,4 +1,4 @@
-import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set, onValue } from "firebase/database";
 
 class Database{
     constructor(){
@@ -10,6 +10,15 @@ class Database{
             nickname,
             classOf,
             major
+        });
+    }
+
+    getUserInfo(userId, setUserInfo){
+        const Ref = ref(this.database, 'users/' + userId);
+        onValue(Ref, (snapshot) => {
+            const data = snapshot.val();
+            data["userId"] = userId;
+            setUserInfo(data);
         });
     }
 }
