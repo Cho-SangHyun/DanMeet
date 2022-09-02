@@ -41,9 +41,18 @@ const Home = ({authService}) => {
             <section className={`${styles.home_section} ${styles.section1}`}>
                 <h1>클릭 한 번으로 시작하는 학교에서 친구 만들기</h1>
             </section>
-            <section className={`${styles.home_section} ${styles.section2}`}></section>
-            <section className={`${styles.home_section} ${styles.section3}`}></section>
-            <section className={`${styles.home_section} ${styles.section4}`}></section>
+            <section className={`${styles.home_section} ${styles.section2}`}>
+                <h1>멘토가 되줄 수 있는 선배가 필요한가요?</h1>
+            </section>
+            <section className={`${styles.home_section} ${styles.section3}`}>
+                <h1>같이 즐겁게 놀 동기가 있으면 좋겠나요?</h1>
+            </section>
+            <section className={`${styles.home_section} ${styles.section4}`}>
+                <div className={styles.home_start}>
+                    <p>지금, 단밋과 함께 시작해보세요</p>
+                    <button onClick={() => {navigate("/signup")}}>지금 당장 시작하기</button>
+                </div>
+            </section>
             <Footer />
         </div>
     )
