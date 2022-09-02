@@ -25,7 +25,50 @@
     width: 80%;
 }
 
-.section1 h1{
+.section2{
+    background-image: url('../../images/background3.jpg');
+    background-position: top center;
+    background-size: cover;
+}
+
+.section2:before{
+    content: '';
+    background: linear-gradient(to left, rgb(20, 20, 20), transparent);
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    width: 90%;
+}
+
+.section2 h1{
+    text-align: end;
+    display: inline-block;
+    width: 40%;
+    font-size: 3.75rem;
+    position: relative;
+    top: 80px;
+    left: 850px;
+    z-index: 2;
+    margin: 0;
+    color: white;
+}
+
+.section3{
+    background-image: url('../../images/background2.jpg');
+    background-position: top center;
+    background-size: cover;
+}
+
+.section3:before{
+    content: '';
+    background: linear-gradient(to top, rgb(240, 240, 240), transparent);
+    position: absolute;
+    bottom: 0px;
+    height: 40%;
+    width: 100%;
+}
+
+.section1 h1, .section3 h1{
     display: inline-block;
     width: 45%;
     font-size: 3.75rem;
@@ -37,18 +80,38 @@
     color: white;
 }
 
-.section2{
-    background-image: url('../../images/background3.jpg');
-    background-position: top center;
-    background-size: cover;
-}
-
-.section3{
-    background-image: url('../../images/background2.jpg');
-    background-position: top center;
-    background-size: cover;
-}
-
 .section4{
-    background-color: rgb(223, 130, 150);
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home_start{
+    text-align: center;
+    width: 60%;
+    height: 50%;
+}
+
+.home_start p{
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+.home_start button{
+    position: relative;
+    width: 250px;
+    height: 60px;
+    background-color: rgb(255, 255, 255);
+    font-size: 1.25rem;
+    border: 0;
+    border-radius: 1rem;
+    margin: 0 auto;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+.home_start button:hover{
+    transform: translateY(0.2rem);
 }
