@@ -3,6 +3,7 @@ import styles from "./home.module.css";
 import Navbar from '../navbar/navbar';
 import Footer from '../footer/footer';
 import LoginModal from '../loginModal/loginModal';
+import logo from "../../images/logo.png";
 import { useNavigate } from 'react-router-dom';
 
 
@@ -50,7 +51,10 @@ const Home = ({authService}) => {
             <section className={`${styles.home_section} ${styles.section4}`}>
                 <div className={styles.home_start}>
                     <p>지금, 단밋과 함께 시작해보세요</p>
-                    <button onClick={() => {navigate("/signup")}}>지금 당장 시작하기</button>
+                    <img src={logo} alt="로고" />
+                    <div className={styles.start_button}>
+                        <button onClick={() => {navigate("/signup")}}>지금 당장 시작하기</button>
+                    </div>
                 </div>
             </section>
             <Footer />

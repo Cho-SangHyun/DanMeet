@@ -1,7 +1,7 @@
 .modal_background{
     position: fixed;
     top: 0;
-    z-index: 2;
+    z-index: 4;
     width: 100%;
     height: 100vh;
     background-color: rgba(255, 255, 255, .8);
@@ -18,4 +18,65 @@
     background-color: rgb(255, 255, 255);
     box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
     border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.closeModal{
+    color: rgb(161, 161, 161);
+    position: absolute;
+    right: .25rem;
+    top: 0;
+}
+
+.logo{
+    display: block;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.loginForm{
+    width: 100%;
+    height: 400px;
+}
+
+.formInput, .loginButton{
+    display: block;
+    width: 45%;
+    height: 2.25rem;
+    margin: 0 auto;
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: 0;
+}
+
+.formInput{
+    background-color: rgb(241, 241, 241);
+    outline: none;
+}
+
+.loginButton{
+    background-color: rgb(221, 115, 115);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .2s ease-out;
+}
+
+.loginButton:hover{
+    transform: translateY(0.2rem);
+}
+
+.forgotPassword{
+    text-align: center;
+    margin: 0;
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.forgotPassword:hover{
+    font-weight: bold;
 }
