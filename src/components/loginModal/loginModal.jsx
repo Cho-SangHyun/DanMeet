@@ -1,5 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IoCloseOutline } from "react-icons/io5";
+import logo from "../../images/logo.png";
 import styles from "./loginModal.module.css";
 
 const LoginModal = ({closeModal, authService}) => {
@@ -66,12 +68,13 @@ const LoginModal = ({closeModal, authService}) => {
     return(
         <div className={styles.modal_background}>
             <div className={styles.loginModal} ref={modalRef}>
-                로그인모오달
-                <button onClick={closeModal}>닫기</button>
-                <form onSubmit={handleSubmit}>
-                    <input type="email" name="email" placeholder='이메일' onChange={handleChange}/>
-                    <input type="password" name="password" placeholder='비밀번호' onChange={handleChange}/>
-                    <button>로그인</button>
+                <span className={styles.closeModal} onClick={closeModal}><IoCloseOutline/></span>
+                <form className={styles.loginForm} onSubmit={handleSubmit}>
+                    <img className={styles.logo} src={logo} alt="로고" />
+                    <input className={styles.formInput} type="email" name="email" placeholder='이메일' onChange={handleChange}/>
+                    <input className={styles.formInput} type="password" name="password" placeholder='비밀번호' onChange={handleChange}/>
+                    <button className={styles.loginButton}>로그인</button>
+                    <p className={styles.forgotPassword}>앗! 비밀번호를 잊어버렸나요?</p>
                 </form>
             </div>
         </div>
